@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nationwide Bullying Reporting & Support System</title>
+  <style>
+    /* Reset some default styles */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #f9fafb;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #004080;
+      color: white;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 1.8rem;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section {
+      background: white;
+      padding: 1.5rem 2rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    h2 {
+      color: #004080;
+      margin-top: 0;
+      font-weight: 700;
+      border-bottom: 3px solid #004080;
+      padding-bottom: 0.3rem;
+    }
+    p {
+      margin: 1rem 0;
+      font-size: 1.1rem;
+    }
+    ul {
+      list-style-type: disc;
+      margin-left: 1.5rem;
+      font-size: 1.1rem;
+    }
+    ul li {
+      margin-bottom: 0.7rem;
+    }
+    /* Report form styles */
+    form {
+      background: #e6f0ff;
+      padding: 1.5rem 2rem;
+      border-radius: 8px;
+      box-shadow: inset 0 0 8px rgba(0,64,128,0.1);
+    }
+    form h3 {
+      margin-top: 0;
+      color: #004080;
+    }
+    label {
+      display: block;
+      margin: 0.8rem 0 0.3rem;
+      font-weight: 600;
+    }
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1.5px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      resize: vertical;
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #004080;
+      outline: none;
+    }
+    .anonymous-checkbox {
+      margin-top: 0.5rem;
+      font-weight: normal;
+    }
+    button {
+      margin-top: 1.2rem;
+      background-color: #004080;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1.1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #003366;
+    }
+    .success-message {
+      margin-top: 1rem;
+      padding: 1rem;
+      background-color: #d4edda;
+      border: 1px solid #c3e6cb;
+      color: #155724;
+      border-radius: 5px;
+      display: none;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #666;
+      background: #f0f0f0;
+      margin-top: 3rem;
+    }
+    @media (max-width: 600px) {
+      main {
+        margin: 1rem;
+        padding: 0 0.5rem;
+      }
+      header h1 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Nationwide Reporting & Support System for Bullying and School Violence</h1>
+  </header>
+  <main>
+    <section>
+      <h2>About the Solution</h2>
+      <p>
+        This solution is based on a webpage where cases of school bullying can be reported anonymously or openly.
+        Thanks to these reports, experts in the field will come to support students and review school coexistence.
+        In addition, schools will be reviewed annually, even if no complaints have been made.
+      </p>
+    </section>
+
+    <section>
+      <h2>Why Our Solution Works</h2>
+      <p><strong>Innovative:</strong> Our prototype allows anonymous reports, which motivates students to speak up without fear. Experts will then visit the institution, resolve the case, and provide advice to both students and school authorities.</p>
+      <p><strong>Desirable:</strong> This is desirable because many schools do not know how to control bullying and often prioritize other issues.</p>
+      <p><strong>Legal:</strong> The system will be supported by national education policies and child protection laws, guaranteeing that all reports are taken seriously and legally followed up.</p>
+      <p><strong>Accessible:</strong> It is accessible since it can be used online from any device, and it will be available for free in every school, ensuring equal opportunities for all students to report cases of violence.</p>
+      <p><em>In conclusion, our project provides an innovative, reliable, and realistic way to reduce bullying and guarantee a better educational experience for every student.</em></p>
+    </section>
+
+    <section>
+      <h2>Report a Bullying or Violence Case</h2>
+      <form id="reportForm" novalidate>
+        <h3>Submit Your Report</h3>
+        <label for="schoolName">School Name *</label>
+        <input type="text" id="schoolName" name="schoolName" required placeholder="Enter the school name" />
+
+        <label for="incidentDate">Date of Incident *</label>
+        <input type="date" id="incidentDate" name="incidentDate" required max="" />
+
+        <label for="incidentType">Type of Incident *</label>
+        <select id="incidentType" name="incidentType" required>
+          <option value="" disabled selected>Select incident type</option>
+          <option value="Bullying">Bullying</option>
+          <option value="Physical Violence">Physical Violence</option>
+          <option value="Verbal Abuse">Verbal Abuse</option>
+          <option value="Cyberbullying">Cyberbullying</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <label for="description">Description *</label>
+        <textarea id="description" name="description" rows="5" required placeholder="Describe the incident in detail"></textarea>
+
+        <label class="anonymous-checkbox">
+          <input type="checkbox" id="anonymous" name="anonymous" />
+          Submit report anonymously
+        </label>
+
+        <div id="contactFields">
+          <label for="reporterName">Your Name</label>
+          <input type="text" id="reporterName" name="reporterName" placeholder="Optional if anonymous" />
+
+          <label for="reporterEmail">Your Email</label>
+          <input type="email" id="reporterEmail" name="reporterEmail" placeholder="Optional if anonymous" />
+        </div>
+
+        <button type="submit">Submit Report</button>
+        <div class="success-message" id="successMessage">Thank you for your report. Our experts will review it promptly.</div>
+      </form>
+    </section>
+  </main>
+  <footer>
+    &copy; 2024 Nationwide Bullying Reporting & Support System
+  </footer>
+
+  <script>
+    // Set max date for incidentDate input to today
+    const incidentDateInput = document.getElementById('incidentDate');
+    const today = new Date().toISOString().split('T')[0];
+    incidentDateInput.setAttribute('max', today);
+
+    const anonymousCheckbox = document.getElementById('anonymous');
+    const contactFields = document.getElementById('contactFields');
+    const reporterNameInput = document.getElementById('reporterName');
+    const reporterEmailInput = document.getElementById('reporterEmail');
+    const form = document.getElementById('reportForm');
+    const successMessage = document.getElementById('successMessage');
+
+    // Toggle contact fields based on anonymous checkbox
+    function toggleContactFields() {
+      if (anonymousCheckbox.checked) {
+        contactFields.style.display = 'none';
+        reporterNameInput.required = false;
+        reporterEmailInput.required = false;
+      } else {
+        contactFields.style.display = 'block';
+        reporterNameInput.required = true;
+        reporterEmailInput.required = true;
+      }
+    }
+
+    // Initialize contact fields visibility
+    toggleContactFields();
+
+    anonymousCheckbox.addEventListener('change', toggleContactFields);
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Simple validation
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      // Additional email format validation if not anonymous
+      if (!anonymousCheckbox.checked) {
+        const email = reporterEmailInput.value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+          alert('Please enter a valid email address.');
+          reporterEmailInput.focus();
+          return;
+        }
+      }
+
+      // Here you would normally send the data to a server
+      // For this demo, just show success message and reset form
+      successMessage.style.display = 'block';
+      form.reset();
+      toggleContactFields();
+
+      // Scroll to success message
+      successMessage.scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
