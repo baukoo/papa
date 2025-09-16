@@ -6,9 +6,7 @@
   <title>Nationwide Bullying Reporting & Support System</title>
   <style>
     /* Reset some default styles */
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
@@ -16,128 +14,84 @@
       color: #333;
       line-height: 1.6;
     }
-    header {
-      background-color: #004080;
-      color: white;
-      padding: 1.5rem 1rem;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    header h1 {
-      margin: 0;
-      font-weight: 700;
-      font-size: 1.8rem;
-    }
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    section {
-      background: white;
-      padding: 1.5rem 2rem;
-      margin-bottom: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    h2 {
-      color: #004080;
-      margin-top: 0;
-      font-weight: 700;
-      border-bottom: 3px solid #004080;
-      padding-bottom: 0.3rem;
-    }
-    p {
-      margin: 1rem 0;
-      font-size: 1.1rem;
-    }
-    ul {
-      list-style-type: disc;
-      margin-left: 1.5rem;
-      font-size: 1.1rem;
-    }
-    ul li {
-      margin-bottom: 0.7rem;
-    }
+    header { background-color: #004080; color: white; padding: 1.5rem 1rem; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    header h1 { margin: 0; font-weight: 700; font-size: 1.8rem; }
+    main { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+    section { background: white; padding: 1.5rem 2rem; margin-bottom: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    h2 { color: #004080; margin-top: 0; font-weight: 700; border-bottom: 3px solid #004080; padding-bottom: 0.3rem; }
+    p { margin: 1rem 0; font-size: 1.1rem; }
+    ul { list-style-type: disc; margin-left: 1.5rem; font-size: 1.1rem; }
+    ul li { margin-bottom: 0.7rem; }
     /* Report form styles */
-    form {
-      background: #e6f0ff;
-      padding: 1.5rem 2rem;
-      border-radius: 8px;
-      box-shadow: inset 0 0 8px rgba(0,64,128,0.1);
+    form { background: #e6f0ff; padding: 1.5rem 2rem; border-radius: 8px; box-shadow: inset 0 0 8px rgba(0,64,128,0.1); }
+    form h3 { margin-top: 0; color: #004080; }
+    label { display: block; margin: 0.8rem 0 0.3rem; font-weight: 600; }
+    input[type="text"], input[type="email"], select, textarea {
+      width: 100%; padding: 0.5rem; border: 1.5px solid #ccc; border-radius: 5px; font-size: 1rem; transition: border-color 0.3s ease; resize: vertical;
     }
-    form h3 {
-      margin-top: 0;
-      color: #004080;
-    }
-    label {
-      display: block;
-      margin: 0.8rem 0 0.3rem;
-      font-weight: 600;
-    }
-    input[type="text"],
-    input[type="email"],
-    select,
-    textarea {
-      width: 100%;
-      padding: 0.5rem;
-      border: 1.5px solid #ccc;
-      border-radius: 5px;
-      font-size: 1rem;
-      transition: border-color 0.3s ease;
-      resize: vertical;
-    }
-    input[type="text"]:focus,
-    input[type="email"]:focus,
-    select:focus,
-    textarea:focus {
-      border-color: #004080;
-      outline: none;
-    }
-    .anonymous-checkbox {
-      margin-top: 0.5rem;
-      font-weight: normal;
-    }
-    button {
-      margin-top: 1.2rem;
-      background-color: #004080;
+    input[type="text"]:focus, input[type="email"]:focus, select:focus, textarea:focus { border-color: #004080; outline: none; }
+    .anonymous-checkbox { margin-top: 0.5rem; font-weight: normal; }
+    button { margin-top: 1.2rem; background-color: #004080; color: white; border: none; padding: 0.8rem 1.5rem; font-size: 1.1rem; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease; }
+    button:hover { background-color: #003366; }
+    .success-message { margin-top: 1rem; padding: 1rem; background-color: #d4edda; border: 1px solid #c3e6cb; color: #155724; border-radius: 5px; display: none; }
+    footer { text-align: center; padding: 1rem; font-size: 0.9rem; color: #666; background: #f0f0f0; margin-top: 3rem; }
+    @media (max-width: 600px) { main { margin: 1rem; padding: 0 0.5rem; } header h1 { font-size: 1.4rem; } }
+
+    /* ===================== AI CHAT WIDGET STYLES ===================== */
+    .chat-toggle-btn {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg,#0066cc,#004080);
       color: white;
-      border: none;
-      padding: 0.8rem 1.5rem;
-      font-size: 1.1rem;
-      border-radius: 5px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow: 0 6px 18px rgba(2,6,23,0.28);
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      z-index: 9999;
     }
-    button:hover {
-      background-color: #003366;
+    .chat-panel {
+      position: fixed;
+      right: 20px;
+      bottom: 90px;
+      width: 360px;
+      max-width: calc(100% - 40px);
+      height: 520px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 12px 40px rgba(2,6,23,0.2);
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+      z-index: 9999;
+      transform-origin: bottom right;
     }
-    .success-message {
-      margin-top: 1rem;
-      padding: 1rem;
-      background-color: #d4edda;
-      border: 1px solid #c3e6cb;
-      color: #155724;
-      border-radius: 5px;
-      display: none;
+    .chat-header {
+      background: #004080;
+      color: white;
+      padding: 12px 14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
     }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #666;
-      background: #f0f0f0;
-      margin-top: 3rem;
-    }
-    @media (max-width: 600px) {
-      main {
-        margin: 1rem;
-        padding: 0 0.5rem;
-      }
-      header h1 {
-        font-size: 1.4rem;
-      }
-    }
+    .chat-header .title { font-weight:700; font-size:0.95rem; }
+    .chat-body { padding: 12px; flex:1; overflow:auto; background: linear-gradient(180deg, #f7fbff, #ffffff); }
+    .chat-footer { padding: 10px; border-top: 1px solid #eee; display:flex; gap:8px; }
+    .chat-input { flex:1; min-height:44px; max-height:120px; padding:10px; border-radius:8px; border:1px solid #ddd; resize:none; }
+    .send-btn { background:#0066cc; color:white; border:none; padding:0 14px; border-radius:8px; cursor:pointer; }
+    .msg { margin-bottom:10px; display:flex; gap:8px; align-items:flex-end; }
+    .msg.user { justify-content:flex-end; }
+    .bubble { max-width:78%; padding:10px 12px; border-radius:12px; font-size:0.95rem; line-height:1.3; }
+    .bubble.ai { background:#e9f2ff; color:#04263a; border-top-left-radius:4px; }
+    .bubble.user { background:#004080; color:white; border-bottom-right-radius:4px; }
+    .typing { font-style:italic; opacity:0.8; }
+    .small-muted { font-size:0.75rem; color:#eef; opacity:0.9; }
+    .chat-hidden { display:none; }
+
   </style>
 </head>
 <body>
@@ -208,8 +162,29 @@
     &copy; 2024 Nationwide Bullying Reporting & Support System
   </footer>
 
+  <!-- ===================== CHAT WIDGET MARKUP ===================== -->
+  <div id="chatToggle" class="chat-toggle-btn" title="Abrir chat con IA">💬</div>
+
+  <div id="chatPanel" class="chat-panel chat-hidden" aria-hidden="true">
+    <div class="chat-header">
+      <div>
+        <div class="title">Asistente AI</div>
+        <div class="small-muted">Ayuda y orientación (demo)</div>
+      </div>
+      <div>
+        <button id="minimizeBtn" aria-label="Minimizar chat" style="background:transparent;border:none;color:white;cursor:pointer;font-size:1.1rem">—</button>
+        <button id="closeBtn" aria-label="Cerrar chat" style="background:transparent;border:none;color:white;cursor:pointer;font-size:1.1rem">✕</button>
+      </div>
+    </div>
+    <div id="chatBody" class="chat-body" role="log" aria-live="polite"></div>
+    <div class="chat-footer">
+      <textarea id="chatInput" class="chat-input" placeholder="Escribe tu pregunta..." rows="1"></textarea>
+      <button id="sendBtn" class="send-btn">Enviar</button>
+    </div>
+  </div>
+
   <script>
-    // Set max date for incidentDate input to today
+    // ---------- existing script (keeps form behavior) ----------
     const incidentDateInput = document.getElementById('incidentDate');
     const today = new Date().toISOString().split('T')[0];
     incidentDateInput.setAttribute('max', today);
@@ -221,7 +196,6 @@
     const form = document.getElementById('reportForm');
     const successMessage = document.getElementById('successMessage');
 
-    // Toggle contact fields based on anonymous checkbox
     function toggleContactFields() {
       if (anonymousCheckbox.checked) {
         contactFields.style.display = 'none';
@@ -234,40 +208,178 @@
       }
     }
 
-    // Initialize contact fields visibility
     toggleContactFields();
-
     anonymousCheckbox.addEventListener('change', toggleContactFields);
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-
-      // Simple validation
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-
-      // Additional email format validation if not anonymous
+      if (!form.checkValidity()) { form.reportValidity(); return; }
       if (!anonymousCheckbox.checked) {
         const email = reporterEmailInput.value.trim();
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(email)) {
-          alert('Please enter a valid email address.');
-          reporterEmailInput.focus();
-          return;
-        }
+        if (!emailPattern.test(email)) { alert('Please enter a valid email address.'); reporterEmailInput.focus(); return; }
       }
-
-      // Here you would normally send the data to a server
-      // For this demo, just show success message and reset form
       successMessage.style.display = 'block';
       form.reset();
       toggleContactFields();
-
-      // Scroll to success message
       successMessage.scrollIntoView({ behavior: 'smooth' });
     });
+
+    // ---------- CHAT WIDGET SCRIPT ----------
+    const chatToggle = document.getElementById('chatToggle');
+    const chatPanel = document.getElementById('chatPanel');
+    const chatBody = document.getElementById('chatBody');
+    const chatInput = document.getElementById('chatInput');
+    const sendBtn = document.getElementById('sendBtn');
+    const minimizeBtn = document.getElementById('minimizeBtn');
+    const closeBtn = document.getElementById('closeBtn');
+
+    let chatOpen = false;
+    let chatHistory = JSON.parse(localStorage.getItem('chatHistory_v1') || '[]');
+
+    function renderHistory() {
+      chatBody.innerHTML = '';
+      chatHistory.forEach(item => appendMessageToDOM(item.role, item.text));
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function appendMessageToDOM(role, text, opts={}) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'msg ' + (role === 'user' ? 'user' : 'ai');
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble ' + (role === 'user' ? 'user' : 'ai');
+      bubble.innerText = text;
+      wrapper.appendChild(bubble);
+      chatBody.appendChild(wrapper);
+      if (opts.focus) bubble.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function showTyping() {
+      const t = document.createElement('div');
+      t.className = 'msg ai typing';
+      t.id = 'typingIndicator';
+      const b = document.createElement('div');
+      b.className = 'bubble ai';
+      b.innerText = 'Escribiendo...';
+      t.appendChild(b);
+      chatBody.appendChild(t);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function hideTyping() {
+      const t = document.getElementById('typingIndicator');
+      if (t) t.remove();
+    }
+
+    function openChat() {
+      chatPanel.classList.remove('chat-hidden');
+      chatPanel.setAttribute('aria-hidden','false');
+      chatOpen = true;
+      renderHistory();
+      chatInput.focus();
+    }
+    function closeChat() {
+      chatPanel.classList.add('chat-hidden');
+      chatPanel.setAttribute('aria-hidden','true');
+      chatOpen = false;
+    }
+
+    chatToggle.addEventListener('click', () => {
+      if (chatOpen) closeChat(); else openChat();
+    });
+    minimizeBtn.addEventListener('click', () => closeChat());
+    closeBtn.addEventListener('click', () => { closeChat(); /* optionally clear history: chatHistory = []; localStorage.removeItem('chatHistory_v1'); */ });
+
+    // Allow pressing Enter to send (Shift+Enter for newline)
+    chatInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+
+    sendBtn.addEventListener('click', sendMessage);
+
+    // Core: send message to AI (placeholder + fallback)
+    async function sendMessage() {
+      const text = chatInput.value.trim();
+      if (!text) return;
+      // Append user message locally
+      chatHistory.push({ role: 'user', text });
+      localStorage.setItem('chatHistory_v1', JSON.stringify(chatHistory));
+      appendMessageToDOM('user', text, { focus: true });
+      chatInput.value = '';
+
+      // Show typing
+      showTyping();
+
+      try {
+        // Attempt to call real backend endpoint first
+        const aiReply = await sendToAI(text, chatHistory);
+        hideTyping();
+        chatHistory.push({ role: 'assistant', text: aiReply });
+        localStorage.setItem('chatHistory_v1', JSON.stringify(chatHistory));
+        appendMessageToDOM('assistant', aiReply, { focus: true });
+      } catch (err) {
+        // On error, provide a local fallback response
+        hideTyping();
+        const fallback = localFallbackResponse(text);
+        chatHistory.push({ role: 'assistant', text: fallback });
+        localStorage.setItem('chatHistory_v1', JSON.stringify(chatHistory));
+        appendMessageToDOM('assistant', fallback, { focus: true });
+        console.error('AI request failed, using fallback. Details:', err);
+      }
+    }
+
+    // Placeholder function: adapt this to your backend
+    // Best practice: do NOT call OpenAI directly from client-side. Create a server endpoint (/api/chat)
+    // that holds your API key and forwards requests to the AI provider.
+    async function sendToAI(message, history) {
+      // Example: POST to your server which calls the AI provider
+      // The server should return { reply: '...' }
+
+      const resp = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message, history })
+      });
+
+      if (!resp.ok) throw new Error('Server error: ' + resp.status);
+      const data = await resp.json();
+      if (!data || typeof data.reply !== 'string') throw new Error('Bad response from server');
+      return data.reply;
+    }
+
+    // Local fallback simple AI (safe demo) — replace or remove in production
+    function localFallbackResponse(userText) {
+      const lower = userText.toLowerCase();
+      if (lower.includes('salud') || lower.includes('dolor') || lower.includes('deprim')) {
+        return 'Siento que estás pasando por un momento difícil. Si es una emergencia, por favor busca ayuda local o contacta a los servicios de emergencia. ¿Quieres recursos sobre cómo hablar con un adulto de confianza?';
+      }
+      if (lower.includes('acoso') || lower.includes('bully') || lower.includes('bullying')) {
+        return 'Si estás siendo acosado, puedes reportarlo aquí o hablar con un adulto de confianza. ¿Quieres que te guíe sobre cómo documentar el caso para reportarlo?';
+      }
+      // Echo with slight modification
+      return 'He recibido tu mensaje: "' + (userText.length > 200 ? userText.slice(0,200) + '...' : userText) + '". (Demo AI — conecta un backend para respuestas reales)';
+    }
+
+    // Initialize: if history exists, render but keep panel closed
+    if (chatHistory.length) renderHistory();
+
+    // Accessibility: close chat when ESC pressed
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeChat(); });
+
+    // Optional: clear local history if user long-presses toggle (example)
+    let pressTimer = null;
+    chatToggle.addEventListener('mousedown', () => {
+      pressTimer = setTimeout(() => {
+        if (confirm('¿Borrar historial local del chat?')) { chatHistory = []; localStorage.removeItem('chatHistory_v1'); renderHistory(); }
+      }, 800);
+    });
+    document.addEventListener('mouseup', () => { clearTimeout(pressTimer); });
+
   </script>
 </body>
 </html>
+
